@@ -1,0 +1,134 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+  /** primary **/
+  --ion-color-primary: radial-gradient(circle, rgba(15, 169, 166, 1) 0%, rgba(101, 168, 17, 1) 100%);
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
+
+  /** secondary **/
+  --ion-color-secondary:#4caf94;
+  --ion-color-secondary-rgb: 61, 194, 255;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #36abe0;
+  --ion-color-secondary-tint: #50c8ff;
+
+  /** tertiary **/
+  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary-rgb: 82, 96, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #4854e0;
+  --ion-color-tertiary-tint: #6370ff;
+
+  /** success **/
+  --ion-color-success: #2dd36f;
+  --ion-color-success-rgb: 45, 211, 111;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #28ba62;
+  --ion-color-success-tint: #42d77d;
+
+  /** warning **/
+  --ion-color-warning: #ffc409;
+  --ion-color-warning-rgb: 255, 196, 9;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0ac08;
+  --ion-color-warning-tint: #ffca22;
+
+  /** danger **/
+  --ion-color-danger: #eb445a;
+  --ion-color-danger-rgb: 235, 68, 90;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #cf3c4f;
+  --ion-color-danger-tint: #ed576b;
+
+  /** dark **/
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34, 36, 40;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  /** medium **/
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146, 148, 156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #808289;
+  --ion-color-medium-tint: #9d9fa6;
+
+  /** light **/
+  --ion-color-light: #ffffff;
+  --ion-color-light-rgb: 244, 245, 248;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+}
+
+:root[mode="md"],
+:root[mode="ios"]{
+  --ion-font-family:'Poppins', sans-serif !important;
+  font-family:var( --ion-font-family);
+  
+  --ion-font-Regular:400 !important;
+  font-weight:var(--ion-font-Regular);
+
+  --ion-font-medium:500 !important;
+  font-weight:var(--ion-font-medium);
+  
+  --ion-font-family-semiBold:600 !important;
+  font-weight:var(--ion-font-family-semiBold);
+
+  --ion-font-family-bold:700 !important;
+  font-weight:var(--ion-font-family-bold);
+
+  --bg-primary:linear-gradient(-87deg, #320248 0%, #5e0885 47%, rgba(94, 8, 133, 0.99) 48%, rgb(0 0 0 / 61%) 100%)  !important;
+
+  
+  --text-primary:linear-gradient(-87deg, #320248 0%, #5e0885 47%, rgba(94, 8, 133, 0.99) 48%, rgb(0 0 0 / 61%) 100%)  !important;
+color:var(--text-primary); 
+  --text-gary-dark:#494949 !important;
+color:var(--text-gary-dark); 
+
+  --text-orange:#FF6F00 !important;.avatar {
+    border: solid 1px red;
+    text-align: center;
+    line-height: 42px;
+    font-size: 22px;
+}
+ color:var(--text-orange); 
+
+  --text-gray:#929292 !important;
+  color:var(--text-gray); 
+
+  --greencol:#13AF00 !important;
+  background:var(--greencol); 
+  color:var(--greencol);
+  
+  --whitecol:#FFF !important;
+  background:var(--whitecol); 
+  color:var(--whitecol);
+
+  --bulecol:linear-gradient(-87deg, #320248 0%, #5e0885 47%, rgba(94, 8, 133, 0.99) 48%, rgb(0 0 0 / 61%) 100%)  !important;
+ background:var(--bulecol); 
+
+  --garycol:#E1E1E1 !important;
+  background:var(--garycol); 
+  --yellowcol:#FDAE1D !important;
+  background:var(--yellowcol); 
+
+  --bg-gray:#FBFBFB !important;
+  background:var(--bg-gray); 
+
+}

@@ -1,0 +1,102 @@
+<ion-header class="modal-header">
+  <ion-toolbar>
+    <ion-title>Trip Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()"><ion-icon name="close"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="QuantityForm">
+    <ion-card class="trip-card">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="5" class="trip-label">
+            <h1>Name</h1>
+          </ion-col>
+          <ion-col size="7" class="trip-info">
+            <p>{{tripDetails.first_name }} {{tripDetails.last_time}}</p>
+          </ion-col>
+          <ion-col size="12" class="trip-separator">
+            <div class="dotted-line"></div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="5" class="trip-label">
+            <h1>Permit No</h1>
+          </ion-col>
+          <ion-col size="7" class="trip-info">
+            <p>{{tripDetails.permit_number }}</p>
+          </ion-col>
+          <ion-col size="12" class="trip-separator">
+            <div class="dotted-line"></div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="5" class="trip-label">
+            <h1>Tanker No</h1>
+          </ion-col>
+          <ion-col size="7" class="trip-info">
+            <p>{{tripDetails.tanker_number }}</p>
+          </ion-col>
+          <ion-col size="12" class="trip-separator">
+            <div class="dotted-line"></div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="5" class="trip-label">
+            <h1>Tanker Type</h1>
+          </ion-col>
+          <ion-col size="7" class="trip-info">
+            <p>{{tripDetails.tanker_type }}</p>
+          </ion-col>
+          <ion-col size="12" class="trip-separator">
+            <div class="dotted-line"></div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="5" class="trip-label">
+            <h1>Wallet Amount</h1>
+          </ion-col>
+          <ion-col size="7" class="trip-info">
+            <p>{{tripDetails.wallet_amount }}</p>
+          </ion-col>
+          <ion-col size="12" class="trip-separator">
+            <div class="dotted-line"></div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" class="trip-info">
+            <div class="logMarginbottom">
+              <ion-item>
+                <div class="inputlogin">
+                  <ion-input type="number" formControlName="quantity" label="Quantity" label-placement="floating" fill="outline" placeholder="Enter Quantity"></ion-input>
+                </div>
+              </ion-item>
+            </div>
+            <div *ngIf="submitted||(form['quantity'].touched && form['quantity'].invalid)">
+              <small class="form-text error-message" *ngIf="form['quantity'].errors?.['required']"> Quantity is required</small>
+              <small class="form-text error-message" *ngIf="form['quantity'].errors?.['pattern']"> Please enter valid Quantity
+                id</small>
+            </div>
+          </ion-col>
+          <ion-col size="12" class="trip-separator">
+            <div class="dotted-line"></div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-button *ngIf="!tripDetails.is_attended" color="success" class="download-trip-btn"
+            (click)="approveEntry(tripDetails.id)">
+            Approve Entry
+          </ion-button>
+          <ion-button *ngIf="tripDetails.is_attended" disabled="true" color="danger" class="download-trip-btn">
+            Already Checked In
+          </ion-button>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </form>
+
+
+</ion-content>

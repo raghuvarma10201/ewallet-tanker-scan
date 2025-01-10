@@ -1,0 +1,59 @@
+<ion-header [translucent]="true" class="headerBlock ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-img src="assets/images/ipsc-logo.svg"></ion-img>
+      <h5>List of Hotels</h5>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="fixed-backgroundMiddel"> </div>
+  <div class="searchTopWrapp">
+    <ion-searchbar placeholder="Enter the Hotal Name" show-clear-button="never" [(ngModel)]="searchTerm" (input)="search()"></ion-searchbar>
+  </div>
+  <ng-template [ngIf]="hotelsList==='' && hotelsList.length == 0">
+    <app-nodata></app-nodata>
+  </ng-template>
+  <ng-template [ngIf]="hotelsList && hotelsList.length > 0">
+  <div class="noHotels" *ngIf="isfalse">
+    <app-nodata></app-nodata>
+  </div>
+  <div *ngIf="!isfalse" class="supportAbsoluteBottomSpace">
+    <div class="hotelwrapp" *ngFor="let details of filteredHotels.length ? filteredHotels : hotelsList" >
+        <div class="hotelIon">
+          <swiper-container  [slidesPerView]="1" [spaceBetween]="1" [loop]="false" navigation="true">
+            <swiper-slide *ngFor="let data of details.image">
+              <ion-img src="{{Imagebase + data.image}}"></ion-img>
+            </swiper-slide>
+          </swiper-container>
+        
+          <div class="ionContent">  
+            <ion-text>
+              <a href="{{details.url}}"><h1>{{details.name}}</h1></a>
+              <p> {{details.address}} </p>
+              <p>Price: {{details.amount}}</p>
+              <h3 class="ion-float-left"><span>Distance: </span>{{details.distance}}</h3>
+              <h3 class="ion-float-right"><ion-icon name="call-outline"></ion-icon> <a href="tel:{{details.phone_number}}">{{details.phone_number}}</a> </h3>
+            </ion-text>
+          </div>
+        </div>
+    
+        <!-- <div class="ionContent">
+          <ion-button [routerLink]="['/ipsc/signup']" shape="round" color="primary" expand="full">Register Now</ion-button>
+        </div> -->
+    </div>
+  </div>
+</ng-template>
+  
+</ion-content>
+
+<ion-footer class="ion-no-border appSupportFooter noFooter" text-center>
+  <app-support-footer></app-support-footer>
+</ion-footer>

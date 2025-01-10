@@ -1,0 +1,116 @@
+<!-- <ion-header class="headerBlock">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-img src="assets/images/ipsc-logo.svg"></ion-img>
+      <h5></h5>
+    </ion-title>    
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" pullingIcon="arrow-down">
+    <ion-refresher-content pullingText="Pull to refresh..." refreshingSpinner="circles"
+      refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="fixed-backgroundMiddel"> </div>
+  <ion-img class="scannerMainImg" src="assets/images/scan-img.svg"></ion-img>
+  <div class="scannerwrapp">
+    <ion-row>
+      <ion-col size="12" *ngFor="let data of scannerOptions  ; let i = index">
+        <ion-card class="ion-text-center" (click)="scanAction(data.value)" [ngClass]="cardClass[i % cardClass.length]"
+          *ngIf="data.value !== 'for_stall' && designation === 'Scanneradmin' ">
+          <ion-item color="none" lines="none">
+            <ion-img [src]="imgBasepath+data.value_path"></ion-img>
+            <ion-text>
+              <h2>{{data.cardValue}}</h2>
+              <h4>Scan ID Cards</h4>
+            </ion-text>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="12" *ngFor="let data of scannerOptions  ; let i = index">
+        <ion-card class="ion-text-center" (click)="scanAction(data.value)" [ngClass]="cardClass[i % cardClass.length]"
+          *ngIf="data.value === 'for_stall' && designation === 'Stalladmin' ">
+          <ion-item color="none" lines="none">
+            <ion-img [src]="imgBasepath+data.value_path"></ion-img>
+            <ion-text>
+              <h2>{{data.cardValue}} ({{organization}})</h2>
+              <!-- <span>{{organization}}</span> -->
+              <h4>Scan ID Cards</h4>
+            </ion-text>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!-- [ngClass]="{
+    'colorSup2': data.cardValue.toLowerCase() === 'conference',
+    'colorSup3': data.cardValue.toLowerCase() === 'workshop',          
+    }" -->
+
+    <div class="scannerCount">
+      <ion-row>
+        <ng-container *ngIf="designation === 'Scanneradmin'">
+          <ion-col size="12" *ngFor="let data of attendanceCount">
+            <ion-card class="ion-text-center">
+
+              <!-- <ion-img [src]="imgBasepath+data.value_path"></ion-img> -->
+              <h2>{{data.date}}</h2>
+              <ion-row>
+                <ion-col size="4" *ngIf="designation === 'Scanneradmin'">
+                  <ion-text>
+                    <h4 class="lunchCountColor">{{data.attendance.for_lunch}}</h4>
+                    <h2>Lunch</h2>
+                  </ion-text>
+                </ion-col>
+                <ion-col size="4" *ngIf="designation === 'Scanneradmin'">
+                  <ion-text class="colorSup2">
+                    <h4 class="conferenceCountColor">{{data.attendance.for_conference}}</h4>
+                    <h2>Conference</h2>
+                  </ion-text>
+                </ion-col>
+                <ion-col size="4" class="colorSup3" *ngIf="designation === 'Scanneradmin'">
+                  <ion-text>
+                    <h4 class="workshopCountColor">{{data.attendance.for_workshop}}</h4>
+                    <h2>Workshop</h2>
+                  </ion-text>
+                </ion-col>
+
+              </ion-row>
+            </ion-card>
+          </ion-col>
+        </ng-container>
+        <ng-container *ngIf="designation === 'Stalladmin' && stallAttendenceCount.length > 0">
+          <ion-col size="12">
+            <ion-card class="ion-text-left">
+              <p *ngFor="let data of stallAttendenceCount; let i=index">Day {{i+1}} : {{data.date}}
+                ({{data.attendance}})</p>
+            </ion-card>
+          </ion-col>
+        </ng-container>
+
+
+
+        <!-- <ion-col size="4" class="colorSup3" *ngIf="designation === 'stall admin'">
+      <ion-text>
+        <h4 class="workshopCountColor">{{data.stallAttendenceCount}}</h4>       
+        <h2>{{organization}}</h2>
+       </ion-text>  
+    </ion-col> -->
+
+      </ion-row>
+    </div>
+
+  </div>
+</ion-content>
+
+<ion-footer text-center>
+  <ion-button color="primary" (click)="logout()">
+    Logout
+  </ion-button>
+</ion-footer>

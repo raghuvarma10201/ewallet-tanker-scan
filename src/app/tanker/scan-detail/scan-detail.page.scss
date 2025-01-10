@@ -1,0 +1,104 @@
+// Global styling for the page
+.trip-card {
+    padding: 0px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0px;
+    height: 100%;
+    .download-trip-btn {
+      border-radius: 15px;
+      margin-top: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      width: 100%;
+    }
+  }
+  
+  .trip-label h1 {
+    font-size: 18px;
+    font-weight: bold;
+    //color: #333;
+    //text-align: center;
+    margin: 0px;
+  }
+  
+  .trip-info {
+    text-align: right;
+    color: #555;
+    h4{
+      font-size: 18px;
+      margin: 0px;
+      font-weight: bold;
+    }
+    p {
+      font-size: 13px;
+      margin: 4px 0;
+    }
+    img{
+      width: 58%;
+    }
+  }
+  
+  // Add a dotted line as a separator between sections
+  .trip-separator {
+    margin: 5px 0;
+    .dotted-line {
+      border-top: 1px dashed #ccccccd5;
+      height: 1px;
+    }
+  }
+  
+  // Trip details section (seat, screen)
+  .trip-details {
+    ion-label {
+      font-size: 16px;
+      color: #666;
+    }
+  
+    ion-text {
+      font-size: 18px;
+      color: #000;
+    }
+  }
+  .trip-details2 {
+    ion-label {
+      font-size: 16px;
+      color: #666;
+    }
+  
+    ion-text {
+      text-align: right;
+      font-size: 14px;
+      color: #000;
+    }
+  }
+  // Barcode styling
+  .barcode-container {
+    text-align: center;
+    margin: 20px 0;
+  
+    img {
+      width: 80%;
+      max-width: 250px;
+      height: auto;
+    }
+  }
+  
+  // QR code section styling
+  .qr-code {
+    text-align: center;
+  
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  // Button styling
+  small.form-text.error-message {
+    color: red;
+    text-align: left !important;
+}
+  
+  

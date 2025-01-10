@@ -1,0 +1,39 @@
+<ion-header class="modal-header">
+  <ion-toolbar>
+    <ion-title>Ticket QR Code</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()"><ion-icon name="close"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card class="ticket-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" class="event-name">
+          <h1>{{ticketDetails.event_name}}</h1>
+        </ion-col>
+        <ion-col size="12" class="event-info">
+          <p>{{ticketDetails.event_date | date: 'EEE, dd MMM' }} | {{ticketDetails.event_time}}</p>
+          <p>{{ticketDetails.event_location }}</p>
+          <img src="{{ticketDetails.qrCode}}">
+          <h4>{{ticketDetails.ticket_no}}</h4>
+        </ion-col>
+        <ion-col size="12" class="ticket-separator">
+          <div class="dotted-line"></div>
+        </ion-col>
+        <ion-button *ngIf="ticketDetails.status == 0"  color="success" class="download-ticket-btn" (click)="approveEntry(ticketDetails.id)">
+          Approve Entry
+        </ion-button>
+        <ion-button *ngIf="ticketDetails.status == 1" disabled="true" color="danger" class="download-ticket-btn">
+          Already Checked In
+        </ion-button>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  
+
+</ion-content>

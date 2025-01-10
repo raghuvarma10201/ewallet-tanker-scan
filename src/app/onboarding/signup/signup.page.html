@@ -1,0 +1,208 @@
+<ion-content [fullscreen]="true" >
+ 
+    <div class="loginwrapp">
+      <ion-img class="logingLogo" src="assets/images/logo.svg" alt="logo"></ion-img>
+      <div class="ion-paddingLogin">
+        <ion-text>
+          <h1>Sign Up</h1>
+          <h6>Enter your information</h6>
+        </ion-text>
+
+
+        <form [formGroup]="signUpForm">
+
+          <div class="logMarginbottom">
+          <ion-item lines="none">
+            <div class="iconLoginpos"><ion-icon name="person-outline"></ion-icon></div>
+            <div class="inputlogin">
+              <ion-label position="stacked">Name</ion-label>
+              <ion-select aria-label="title" placeholder="Title" class="titleSign ion-float-left" formControlName="titlename">
+                <ion-select-option value="Mr."> Mr.</ion-select-option>
+                <ion-select-option value="Mrs.">Mrs.</ion-select-option>
+                <ion-select-option value="Ms.">Ms.</ion-select-option>
+                <ion-select-option value="Dr.">Dr.</ion-select-option>
+              </ion-select>
+              <ion-input class="nameSign ion-float-left"  formControlName="name" type="text" placeholder="Enter Your Name"  [ngClass]="{ 'is-invalid': (submitted && form['name'].errors) || (form['name'].touched && form['name'].errors) }"></ion-input>
+            </div>
+          </ion-item>
+          <div class="inputError" *ngIf="submitted||(form['name'].touched && form['name'].invalid)">
+            <small class="form-text error-message" *ngIf="form['name'].errors"> Name is required</small>
+          </div>
+        </div>
+      
+        <div class="logMarginbottom">
+          <ion-item lines="none">
+            <div class="iconLoginpos"><ion-icon name="mail-outline"></ion-icon></div>
+            <div class="inputlogin">
+              <ion-label position="stacked">Email</ion-label>
+              <ion-input type="Email"  formControlName="email" placeholder="Enter Your Email" [ngClass]="{ 'is-invalid': (submitted && form['email'].errors) || (form['email'].touched && form['email'].errors) }"></ion-input>
+            </div>
+          
+          </ion-item>
+          <div *ngIf="submitted||(form['email'].touched && form['email'].invalid)">
+            <small class="form-text error-message" *ngIf="form['email'].errors"> Email is required</small>
+            <small class="form-text error-message" *ngIf="form['email'].errors?.['pattern']"> Please enter valid email
+              id</small>
+          </div>
+        </div>
+
+      
+
+        <div class="logMarginbottom">
+          <ion-item lines="none">
+            <div class="iconLoginpos"><ion-icon name="ribbon-outline"></ion-icon></div>
+            <div class="inputlogin">
+              <ion-label position="stacked">Organization</ion-label>
+              <ion-input type="text"  formControlName="organization" placeholder="Enter Your organization"  [ngClass]="{ 'is-invalid': (submitted && form['organization'].errors) || (form['organization'].touched && form['organization'].errors) }"></ion-input>
+            </div>
+          </ion-item>
+          <div class="inputError" *ngIf="submitted||(form['organization'].touched && form['organization'].invalid)">
+            <small class="form-text error-message" *ngIf="form['organization'].errors"> Organization is required</small>
+          </div>
+        </div>
+
+        <div class="logMarginbottom">
+          <ion-item lines="none">
+            <div class="iconLoginpos"><ion-icon name="bookmarks-outline"></ion-icon></div>
+            <div class="inputlogin">
+              <ion-label position="stacked">Designation</ion-label>
+              <ion-input type="text" formControlName="designation"  placeholder="Enter Your designation" [ngClass]="{ 'is-invalid': (submitted && form['designation'].errors) || (form['designation'].touched && form['designation'].errors) }"></ion-input>
+            </div>
+          </ion-item>
+          <div class="inputError" *ngIf="submitted||(form['designation'].touched && form['designation'].invalid)">
+            <small class="form-text error-message" *ngIf="form['designation'].errors"> Designation is required</small>
+          </div>
+        </div>
+
+        <div class="logMarginbottom">
+          <ion-item lines="none">
+            <div class="iconLoginpos"><ion-icon name="location-outline"></ion-icon></div>
+            <div class="inputlogin">
+              <ion-label position="stacked">location</ion-label>
+              <ion-input type="text"  formControlName="location" placeholder="Enter Your location" [ngClass]="{ 'is-invalid': (submitted && form['location'].errors) || (form['location'].touched && form['location'].errors) }"></ion-input>
+            </div>
+          </ion-item>
+          <div class="inputError" *ngIf="submitted||(form['location'].touched && form['location'].invalid)">
+            <small class="form-text error-message" *ngIf="form['location'].errors"> Location is required</small>
+          </div>
+        </div>
+
+        <div class="logMarginbottom">
+          <ion-item lines="none">
+            <div class="iconLoginpos"><ion-icon name="earth-outline"></ion-icon></div>
+            <div class="inputlogin">
+              <ion-label position="stacked">Country</ion-label>
+              <!-- <ion-select aria-label="country" placeholder="Select Country" class="selectIon">
+              <ng-container *ngFor="let country of countryMaster">
+                <ion-select-option [value]="country.id"> {{country.name}}</ion-select-option>
+              </ng-container>
+               
+               
+              </ion-select> -->
+
+              <!-- <ionic-selectable *ngIf="countryMaster.length>0"
+                (onChange)="portChange($event)"   interface="popover"
+              formControlName="country_id" itemValueField="id"
+              itemTextField="name" 
+              [items]="filteredCountrys.length?filteredCountrys:countryMaster"
+              [canSearch]="false"
+              closeButtonText="Cancel"
+                    
+              (onSearchSuccess)="onPosition($event)"  #portComponent>
+              <ng-template ionicSelectableHeaderTemplate>
+                <ion-row class="ion-no-padding">
+                  <ion-col class="ion-no-padding" size="12">
+                    <ion-toolbar>
+                      <ion-buttons [slot]="portComponent.closeButtonSlot">
+                        <ion-button (click)="portComponent.close()">
+                          {{portComponent.closeButtonText}}
+                        </ion-button>
+                      </ion-buttons>
+                      <ion-title>
+                        {{portComponent.titleText}}
+                      </ion-title>
+                    </ion-toolbar>
+                  </ion-col>
+            
+                  <ion-col class="ion-no-padding" size="12">
+                    <ion-card>
+                      <ion-card-content class="ion-no-padding">
+                        <ion-item lines="none">
+                          <ion-icon slot="start" name="search-outline"></ion-icon>
+                          <ion-input (ionInput)="itemSearch($event)"></ion-input>
+                        </ion-item>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                </ion-row>  
+              </ng-template>
+            </ionic-selectable>  -->
+
+            <ionic-selectable *ngIf="countryMaster.length>0"
+              formControlName="country_id" 
+              itemValueField="id"
+              [(ngModel)]="country"
+              itemTextField="name" 
+              [items]="filteredCountrys.length?filteredCountrys:countryMaster"
+              [canSearch]="true"
+              closeButtonText="Cancel"
+              (onChange)="actionChange($event)"
+          >
+          </ionic-selectable>
+          
+          </div>
+          </ion-item>
+        </div>
+
+        <div class="logMarginbottom">
+
+       
+
+          <ion-item lines="none">
+            <div class="iconLoginpos"><ion-icon name="call-outline"></ion-icon></div>
+          
+            <div class="inputlogin">
+             
+              <ion-label position="stacked">Mobile Number</ion-label>
+              <span class="ion-float-left signupPhonecode">{{phonecode}}</span> <ion-input class="nameSign ion-float-left" type="number" formControlName="number" placeholder="Enter Your Number" [ngClass]="{ 'is-invalid': (submitted && form['number'].errors) || (form['number'].touched && form['number'].errors) }"></ion-input>
+            </div>
+          </ion-item>
+          <div class="inputError" *ngIf="submitted||(form['number'].touched && form['number'].invalid)">
+            <small class="form-text error-message" *ngIf="form['number'].errors"> Phone Number is required</small>
+            <small class="form-text error-message" *ngIf="form['number'].errors?.['pattern']"> Please, Enter 10 digit Mobile Number</small>
+          </div>
+        </div>
+
+        <div class="logMarginbottom">
+          <ion-item lines="none">
+            <div class="iconLoginpos"><ion-icon name="lock-closed-outline"></ion-icon></div>
+            <div class="inputlogin">
+              <ion-button class="showOrHidePassword" (click)="showOrHidePassword()">
+                <ion-icon  *ngIf="isClicked===true" name="eye-off-outline"></ion-icon>
+                <ion-icon *ngIf="isClicked===false"  name="eye-outline"></ion-icon>
+              </ion-button>
+              <ion-label position="stacked">Password</ion-label>
+           
+              <ion-input [type]="initailType" formControlName="password"  placeholder="Enter Password" [ngClass]="{ 'is-invalid': (submitted && form['password'].errors) || (form['password'].touched && form['password'].errors) }"></ion-input>
+            </div>
+          </ion-item>
+          <div *ngIf="submitted||(form['password'].touched && form['password'].invalid)">
+            <small class="form-text error-message" *ngIf="form['password'].errors"> Password is required</small>
+            <small class="form-text error-message" *ngIf="form['password'].errors?.['pattern']">Password must contain more than 8 characters, 1 upper case letter, and 1 special character, 1 number</small>
+          </div>
+        </div>
+
+          <ion-button expand="block" shape="round" size="default" (click)="onSubmit()">Sign up</ion-button>
+          <!-- routerLink="/dashboard" -->
+          <ion-text class="bcaktohomeLink"  routerLink="/home">Back to home</ion-text>
+        </form>
+      </div>
+    </div>
+<div class="fixed-background"></div>
+</ion-content>
+
+<ion-footer class="ion-no-border  loginFooter" text-center>
+   
+  <ion-text>Already have an account? <span class="textLink" [routerLink]="['/login']">Log in <ion-icon slot="end"
+        name="chevron-forward-outline"></ion-icon></span></ion-text>
+</ion-footer>

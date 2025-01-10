@@ -1,0 +1,477 @@
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+// @import "./theme/variables.scss";
+
+@font-face {
+  font-family: "Poppins", sans-serif;
+  src: url("assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-Medium";
+  src: url("assets/fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: url("assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("assets/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+ion-searchbar {
+  --border-radius: 40px;
+  padding-top: 15px;
+}
+
+ion-content.bgColor {
+  --background: #31135a;
+}
+
+.innerBgWrapp {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-top: 10px;
+  padding: 10px 10px 10px 10px;
+  height: 100%;
+  --padding-top: 10px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+}
+
+ion-header {
+  ion-toolbar {
+    --background:  radial-gradient(circle, rgba(15, 169, 166, 1) 0%, rgba(101, 168, 17, 1) 100%);;
+    --color: #fff;
+    --padding-top: 12px;
+    --padding-bottom: 17px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    margin: 2px 2px;
+  }
+
+  .dateFlex {
+    display: flex;
+    margin-top: 0px;
+
+    h6 {
+      padding-right: 15px;
+      margin: 0px;
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: #D1B8F4;
+
+      ion-icon {
+        margin-right: 6px;
+        color: #D1B8F4;
+      }
+    }
+  }
+
+  h3 {
+    color: #D1B8F4;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin: 0px;
+  }
+}
+
+.eventList {
+  .eventImageOverlap {
+    opacity: 0.4;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .eventOverlap {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    padding: 1rem;
+    color: #fff;
+  }
+
+  ion-card-title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .logoTop {
+    width: 200px;
+    display: block;
+    margin: auto;
+    padding: 20px;
+  }
+
+  ion-card {
+    box-shadow: none;
+    border: solid 1px #817318;
+    border-radius: 10px;
+    margin: 0px 15px;
+    --background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0.19373686974789917) 0%,
+        rgba(0, 0, 0, 0.5074623599439776) 43%,
+        rgba(0, 0, 0, 0.8463979341736695) 100%);
+    box-shadow: 0px 2px 6px 0px rgb(234 222 153 / 25%);
+    margin-bottom: 18px;
+    height: 165px;
+
+    h6 {
+      font-size: 0.8rem;
+      font-weight: 400;
+      display: flex;
+      margin: 0px;
+
+      ion-icon {
+        margin-right: 6px;
+        font-size: 15px;
+      }
+    }
+
+    p {
+      font-size: 0.67rem;
+      font-weight: 400;
+      display: flex;
+      margin: 10px 0px 0px 0px;
+
+      ion-icon {
+        margin-right: 6px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .dateFlex {
+    display: flex;
+    margin-top: 10px;
+
+    h6 {
+      padding-right: 25px;
+    }
+  }
+}
+
+.tripsWrapp {
+  ion-chip{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+  ion-item {
+    align-items: flex-start;
+  }
+
+  ion-card {
+    border-radius: 10px;
+    padding: 10px 0px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    //  box-shadow:inset 0px 3px 6px #07070757;
+    ion-thumbnail {
+      background: #523975;
+      border-radius: 100%;
+      text-align: center;
+      line-height: 57px;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-right: 10px;
+      margin-top: 0px;
+    }
+
+    p {
+      font-size: 0.85rem;
+      font-weight: 400;
+      display: flex;
+      margin: 5px 0px 0px 0px;
+      align-items: center;
+
+      ion-icon {
+        margin-right: 4px;
+      }
+    }
+    .vehicleTimings{
+      display: flex;
+      .entry{
+        ion-icon{
+          color: green;
+        }
+        padding-right: 15px;
+      }
+      .exit{
+        ion-icon{
+          color: red;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 0px;
+    }
+  }
+}
+
+.tripStatus {
+  margin-top: 6px;
+  height: 30px;
+
+  .status-badge {
+    padding: 7px 25px;
+    margin: 0px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .approved-badge {
+    background: #44AC4E;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pending-badge {
+    background: #E6953B;
+    padding-left: 33px;
+    margin-left: -21px;
+  }
+}
+
+.tripCardColor1 {
+  background: #F0F1FF;
+}
+
+.tripCardColor2 {
+  background: #E6FEF9;
+}
+
+.tripCardColor3 {
+  background: #FDFEEF;
+}
+
+.tripCardColor4 {
+  background: #FFE9E1;
+}
+
+.tripCardColor4 {
+  background: #FFEAFE;
+}
+
+ion-card.maintripTop {
+  background: #3F2366;
+  box-shadow: inset 0px 3px 6px #07070757;
+  color: #fff;
+
+  h2 {
+    color: #fff;
+    font-size: 0.9rem;
+  }
+
+  p {
+    color: #d1b8f4;
+  }
+}
+
+
+.tripsWrapp.tripDeailsWrapp {
+  .statusTripIcon {
+    border-left: solid 1px #B6B5B5;
+    padding-left: 18px;
+
+    ion-img {
+      width: 30px;
+    }
+  }
+
+  .tripDetailName {
+    display: flex;
+    justify-content: space-between;
+
+    ion-icon {
+      font-size: 1.1rem;
+    }
+
+  }
+
+  .qrScanIcon {
+    margin-right: 10px;
+    margin-top: 4px;
+    height: 57px;
+  }
+
+  ion-card {
+    h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 0px 0px 6px 0px !important;
+    }
+
+    .tripDetailsCont {
+      width: 100%;
+
+      .d-flex {
+        display: flex;
+
+        ion-text {
+          margin-right: 20px;
+
+          h6 {
+            font-size: 0.75rem;
+            color: #333333;
+            margin: 0px;
+            font-weight: 400;
+            max-width: 100px;
+            margin-bottom: 5px;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          p {
+            font-size: 0.8rem;
+            color: #333333;
+            font-weight: 600;
+            margin: 0px;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.approvedStatus {
+  opacity: 0.7;
+
+  h3 {
+    color: #40AF44;
+  }
+
+  .qrScanIcon {
+    opacity: 0.5;
+  }
+}
+
+.pendingStatus {
+  h3 {
+    color: #FF9826;
+  }
+
+  .qrScanIcon {
+    opacity: 1;
+  }
+}
+
+ion-modal {
+  --height: 71%;
+  align-items: end;
+
+  ion-header {
+    ion-toolbar {
+      --background: #7d56b3;
+      border-radius: 0px !important;
+    }
+  }
+}
+
+.userIconpro {
+  ion-thumbnail {
+    margin: auto;
+  }
+
+  ion-icon {
+    font-size: 3rem;
+    color: #000;
+  }
+}
+
+.loginWrappBg {
+  --background: #523975;
+
+  h6 {
+    font-size: 0.7rem;
+    color: #e7c468;
+    font-weight: 500;
+    text-align: center;
+    margin: 6px 0px 0px 0px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #524a4a;
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    margin: 46px 0px 0px 0px;
+  }
+
+  h5 {
+    text-align: center;
+    color: #262527;
+    font-size: 0.8rem;
+    margin: 6px 0px 20px 0px;
+    font-weight: 400;
+  }
+
+  ion-item {
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 7px;
+    padding-bottom: 8px;
+
+    ion-input {
+      font-size: 0.9rem;
+    }
+  }
+
+  .loginBt {
+    font-size: 1rem;
+    height: 46px;
+  }
+}
+
+.inputError {
+  margin-top: -18px;
+  margin-bottom: 20px;
+
+  small {
+    color: #ff6d6d;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+}

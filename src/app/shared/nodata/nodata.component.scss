@@ -1,0 +1,25 @@
+.wrappNoData{
+.noDataGif {
+    background: #f6f9f6;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    margin: auto;    
+    margin-top: 30px;
+    border: solid 1px #0c7d9f;
+    ion-img {
+        width:110px;
+        margin: auto;
+        height: auto;
+       
+    }
+    }
+    .noDataText{
+        display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #007d9e;
+    font-weight: 600;
+    }
+}

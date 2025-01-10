@@ -1,0 +1,48 @@
+// Styling for the whole page
+
+ion-content {
+    background-color: #f8f8f8;
+}
+
+// Styling for the ticket card
+.ticket-card {
+    margin-bottom: 16px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    ion-item {
+        background: #fff;
+        --inner-padding-start: 0px;
+        --inner-padding-end: 0px;
+
+        ion-label {
+            margin-left: 10px;
+
+            h2 {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 8px;
+                color: #333;
+            }
+
+            p {
+                font-size: 14px;
+                color: #555;
+                margin: 2px 0;
+            }
+        }
+    }
+
+    ion-thumbnail {
+        margin: 0px 5px;
+        width: 25%;
+        height: 100%;
+        img {
+            border-radius: 10px;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

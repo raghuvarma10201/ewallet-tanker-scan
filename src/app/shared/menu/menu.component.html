@@ -1,0 +1,177 @@
+<ion-header>
+  <ion-toolbar>
+    <ng-container *ngIf="menuType=='ipsc'">
+      <ion-title>IPSC Menu</ion-title>
+    </ng-container>
+    <ng-container *ngIf="menuType=='it'">
+      <ion-title>THIT Menu</ion-title>
+    </ng-container>
+    <ng-container *ngIf="menuType=='psc'">
+      <ion-title>PSC Menu</ion-title>
+    </ng-container>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="positionMenu">
+    <ion-menu-toggle auto-hide="false">
+      <ion-list class="custom-menu">
+        <!-- <ion-item [routerLink]="['ipsc/photo-capture']" lines="none">
+          <ion-avatar slot="start" class="custom-avatar">
+            <ion-icon name="copy"></ion-icon>
+          </ion-avatar>
+          <ion-label>PhotoBooth </ion-label>
+        </ion-item> -->
+        
+          <!-- <ion-item [routerLink]="['scanner']" lines="none">
+            <ion-avatar slot="start" class="custom-avatar">
+              <ion-icon name="copy"></ion-icon>
+            </ion-avatar>
+            <ion-label>scanner</ion-label>
+          </ion-item> -->
+
+        <ng-template [ngIf]="isUserLoggedIn">
+          <ion-item lines="none" class="nameLogin" detail="false">
+            <ion-avatar slot="start" class="custom-avatar">
+              <ion-icon name="person"></ion-icon>
+            </ion-avatar>
+            <ion-label>
+              <h4>{{user.name}} <ion-icon *ngIf="menuType=='ipsc'" [routerLink]="['/ipsc/notification']"
+                  class="ion-float-right" name="notifications-outline"></ion-icon> <ion-icon *ngIf="menuType=='it'"
+                  [routerLink]="['/thit/notification']" class="ion-float-right" name="notifications-outline"></ion-icon>
+              </h4>
+              <p>{{user.designation}} </p>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none" detail="false" [routerLink]="['/ipsc/myaccount']">
+            <ion-avatar slot="start" class="custom-avatar">
+              <ion-icon name="person-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>My Space </ion-label>
+          </ion-item>
+          <!-- <ion-item lines="none" detail="false" [routerLink]="['/ipsc/myaccount']">
+            <ion-avatar slot="start" class="custom-avatar">
+              <ion-icon name="person-outline"></ion-icon>
+            </ion-avatar>
+            <ion-label>My Account </ion-label>
+          </ion-item> -->
+
+          <!-- <ng-container *ngIf="menuType=='ipsc'">
+            <ion-item detail="false" lines="none" [routerLink]="['/ipsc/myagenda']">
+              <ion-avatar slot="start" class="custom-avatar">
+                <ion-icon name="calendar-number-outline"></ion-icon>
+              </ion-avatar>
+              <ion-label>My Agenda </ion-label>
+            </ion-item>
+          
+          </ng-container>
+          <ng-container *ngIf="menuType=='it'">
+            <ion-item detail="false" lines="none" [routerLink]="['/thit/myagenda']">
+              <ion-avatar slot="start" class="custom-avatar">
+                <ion-icon name="calendar-number-outline"></ion-icon>
+              </ion-avatar>
+              <ion-label>My Agenda </ion-label>
+            </ion-item>
+
+
+          </ng-container> -->
+
+          <!-- <ng-template [ngIf]="configuremenu && isPrivilegedUser && configuremenu.length>0 && menuType==='ipsc'">
+            <ng-container *ngFor="let menu of configuremenu">
+              <ion-item detail="false" [routerLink]="[menu.path]" lines="none">
+                <ion-avatar slot="start" class="custom-avatar">
+                  <ion-icon [name]="menu.icon"></ion-icon>
+                </ion-avatar>
+                <ion-label>{{menu.name}} </ion-label>
+              </ion-item>
+            </ng-container>
+          </ng-template> -->
+          <!-- <ng-template [ngIf]="configuremenu && isThitPrivilegedUser && configuremenu.length>0 && menuType==='it'">
+            <ng-container *ngFor="let menu of configuremenu">
+              <ion-item detail="false" [routerLink]="[menu.path]" lines="none">
+                <ion-avatar slot="start" class="custom-avatar">
+                  <ion-icon [name]="menu.icon"></ion-icon>
+                </ion-avatar>
+                <ion-label>{{menu.name}} </ion-label>
+              </ion-item>
+            </ng-container>
+          </ng-template> -->
+
+       
+
+
+
+        </ng-template>
+        <!-- <ng-template [ngIf]="menuList && menuList.length == 0">
+         <app-nodata></app-nodata>    
+        </ng-template> -->
+        <ng-template [ngIf]="menuList && menuList.length > 0">
+          <ng-container *ngFor="let menu of menuList">
+            <ion-item detail="false" [routerLink]="[menu.path]" lines="none">
+              <ion-avatar slot="start" class="custom-avatar">
+                <ion-icon [name]="menu.icon"></ion-icon>
+              </ion-avatar>
+              <ion-label>{{menu.title}} </ion-label>
+            </ion-item>
+          </ng-container>
+        </ng-template>
+       
+     
+         <!-- <ion-text class="ion-text-center versionText">Version 2.0.3</ion-text> -->
+      
+
+
+      </ion-list>
+
+
+      <div class="posAbs">
+        <ion-footer class="ion-no-border dark-background-color" text-center>
+
+          <ion-row *ngIf="!isUserLoggedIn">
+            <ion-col>
+              <ion-buttons>
+                <ion-button class="borderRight" [routerLink]="['/login']">
+                  <ion-toolbar>
+                    <ion-img src="assets/images/lock-icon.svg"></ion-img>
+                    <ion-text>Login</ion-text>
+                  </ion-toolbar>
+                </ion-button>
+              </ion-buttons>
+            </ion-col>
+
+            <ion-col>
+              <ion-buttons>
+                <ion-button [routerLink]="['/signup']">
+                  <ion-toolbar>
+                    <ion-img src="assets/images/user-icon.svg"></ion-img>
+                    <ion-text>Register</ion-text>
+                  </ion-toolbar>
+                </ion-button>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="isUserLoggedIn ">
+            <ion-col>
+              <ion-buttons (click)="logout()">
+                <ion-button class="borderRight">
+                  <ion-toolbar>
+                    <ion-img src="assets/images/lock-icon.svg"></ion-img>
+                    <ion-text>Logout</ion-text>
+                  </ion-toolbar>
+                </ion-button>
+              </ion-buttons>
+            </ion-col>
+
+
+          </ion-row>
+
+
+
+        </ion-footer>
+      </div>
+
+
+
+    </ion-menu-toggle>
+  </div>
+</ion-content>

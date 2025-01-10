@@ -1,0 +1,59 @@
+<ion-content [fullscreen]="true" class="loginWrappBg ion-ewallethome" >
+  <div class="ewallethomeWrapp loginwrapp">
+    <ion-card class='logoCard'>
+      <ion-img class="loginLogo" src="../../assets/images/e-wallet-logo.svg"></ion-img>
+      <!-- <h6>Your Ultimate Guide to Dine. Party. and Connect!</h6> -->
+    </ion-card>
+    <div class="ion-paddingLogin">
+      <ion-text>
+        <h1>Login </h1>
+        <h5>Enter your email and password</h5>
+      </ion-text>
+      <form [formGroup]="loginForm">
+        <div class="ion-margin">
+          <ion-item lines="none" class="ion-align-items-center">
+            <div class="iconLoginpos"><ion-icon name="mail-outline"></ion-icon></div>
+            <div class="inputlogin">
+              <!-- <ion-label position="stacked">Email</ion-label> -->
+              <ion-input type="email" aria-label="Email" placeholder="Enter Your Email" 
+              label="Email" labelPlacement="stacked" formControlName="email_id"
+                [ngClass]="{ 'is-invalid': (submitted && form['email_id'].errors) || (form['email_id'].touched && form['email_id'].errors) }"></ion-input>
+            </div>
+          </ion-item>
+
+          <div class="inputError" *ngIf="submitted||(form['email_id'].touched && form['email_id'].invalid)">
+            <small class="form-text error-message" *ngIf="form['email_id'].errors"> Email is required</small>
+            <small class="form-text error-message" *ngIf="form['email_id'].errors?.['pattern']"> Please enter valid email id</small>
+          </div>
+
+
+
+          <ion-item lines="none" class="ion-align-items-center">
+            <div class="iconLoginpos"><ion-icon name="lock-open-outline"></ion-icon></div>
+            <div class="inputlogin">         
+              <!-- <ion-label position="stacked">Password </ion-label> -->
+              <ion-input [type]="initailType" aria-label="password" placeholder="Enter Password"
+                formControlName="password"  label="Password" labelPlacement="stacked"
+                [ngClass]="{ 'is-invalid': (submitted && form['password'].errors) || (form['password'].touched && form['password'].errors) }"></ion-input>
+            </div>
+            <ion-button class="showOrHidePassword" (click)="showOrHidePassword()" slot="end">
+              <ion-icon *ngIf="isClicked===true" name="eye-off-outline"></ion-icon>
+              <ion-icon *ngIf="isClicked===false" name="eye-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <div class="inputError" *ngIf="submitted||(form['password'].touched && form['password'].invalid)">
+            <small class="form-text error-message" *ngIf="form['password'].errors"> Password is required</small>
+          </div>
+
+        </div>
+
+    
+      </form>
+      <div class="ion-margin">
+      <ion-button class="loginBt" expand="block" shape="round" size="default" (click)="onSubmit()"> Login </ion-button>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>

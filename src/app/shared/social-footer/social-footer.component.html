@@ -1,0 +1,68 @@
+<ion-row class="iosSocialFooter">
+  <!-- *ngFor="let socialList of conferenceSocialList" -->
+  <ion-col *ngFor="let socialList of conferenceSocialList">
+    <ion-buttons>
+      <ion-button [attr.href]="socialList.sociallinks" target="_blank" >
+        <ion-toolbar>
+          <!-- <ion-icon name="logo-facebook"></ion-icon> -->
+          <ion-img [src]="imgBasepath+socialList.imagename" alt="blog"></ion-img> 
+        </ion-toolbar>
+      </ion-button>
+    </ion-buttons>
+  </ion-col>
+
+  <!-- <ion-col>
+    <ion-buttons>
+      <ion-button [routerLink]="['']">
+        <ion-toolbar>
+         
+          <ion-img src="assets/images/socialmedia/twitter-icon.svg" alt="blog"></ion-img>
+        </ion-toolbar>
+      </ion-button>
+    </ion-buttons>
+  </ion-col>
+
+  <ion-col>
+    <ion-buttons>
+      <ion-button [routerLink]="['']">
+        <ion-toolbar>
+        
+          <ion-img src="assets/images/socialmedia/linkedin-icon.svg" alt="blog"></ion-img>
+        </ion-toolbar>
+      </ion-button>
+    </ion-buttons>
+  </ion-col>
+
+  <ion-col>
+    <ion-buttons>
+      <ion-button [routerLink]="['']">
+        <ion-toolbar>
+        
+          <ion-img src="assets/images/socialmedia/instagram-icon.svg" alt="blog"></ion-img>
+        
+        </ion-toolbar>
+      </ion-button>
+    </ion-buttons>
+  </ion-col>
+
+  <ion-col>
+    <ion-buttons>
+      <ion-button [routerLink]="['']">
+        <ion-toolbar>
+       
+          <ion-img src="assets/images/socialmedia/youtube-icon.svg" alt="blog"></ion-img>
+        </ion-toolbar>
+      </ion-button>
+    </ion-buttons>
+  </ion-col>
+
+  <ion-col>
+    <ion-buttons>
+      <ion-button [routerLink]="['']">
+        <ion-toolbar>
+        <ion-img src="assets/images/socialmedia/blog-icon.svg" alt="blog"></ion-img>
+        </ion-toolbar>
+      </ion-button>
+    </ion-buttons>
+  </ion-col> -->
+</ion-row>

@@ -1,0 +1,79 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true" >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" pullingIcon="arrow-down">
+    <ion-refresher-content
+      pullingText="Pull to refresh..."
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    ></ion-refresher-content>
+  </ion-refresher>
+  
+  <div class="fixed-background"></div>
+  <div class="dashboard-brand">
+    <ion-img class="dashboardLogo" src="../../assets/images/logo.svg"
+      alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
+  </div>
+  <ng-template [ngIf]="menuData && menuData.length > 0">
+    <ng-container>
+      <div *ngFor="let menu of menuData">
+      <ion-card class="ion-custom-card" (click)="cardAction(menu)">
+        <ion-card-header>
+          <ion-card-title>
+            <div class="icon ion-float-left">
+              <!-- <ion-icon name="book-outline"></ion-icon> -->
+              <ion-img [src]="imgBasepath+menu.icon"></ion-img>
+            </div>
+            <div class="title">
+              <h4>{{menu.title}}</h4>
+            </div>
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+      </div>
+
+    </ng-container>
+  
+  </ng-template>
+
+  <!-- <ion-card class="ion-custom-card" (click)="cardAction('IPSC')">
+    <ion-card-header>
+      <ion-card-title>
+        <div class="icon"><ion-icon name="book-outline"></ion-icon></div>
+        <div class="title">
+          <h4>IPSC</h4>
+        </div>
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card> -->
+  <!-- [routerLink]="['/psc']" -->
+  <!-- <ion-card class="ion-custom-card" (click)="cardAction('psc')" >
+    <ion-card-header>
+      <ion-card-title>
+        <div class="icon"><ion-icon name="book-outline"></ion-icon></div>
+        <div class="title">
+          <h4>Patient Safety Club</h4>
+        </div>
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card> -->
+  <!-- [routerLink]="['/thit']" -->
+  <!-- <ion-card class="ion-custom-card"  (click)="cardAction('thit')">
+    <ion-card-header>
+      <ion-card-title>
+        <div class="icon"><ion-icon name="book-outline"></ion-icon></div>
+        <div class="title">
+          <h4>THIT Conference</h4>
+        </div>
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card> -->
+
+
+</ion-content>

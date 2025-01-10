@@ -1,0 +1,15 @@
+<div *ngIf="userId!=='' ">
+<ion-fab class="supportFab" [routerLink]="['/ipsc/support']">
+  <ion-fab-button class="supportFabButton">
+    <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</div>
+<div *ngIf="userId==='' ">
+<ion-fab class="supportFab" [routerLink]="['/login']">
+  <ion-fab-button class="supportFabButton">
+    <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</div>
+<!-- noFooterlinks -->

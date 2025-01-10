@@ -1,0 +1,78 @@
+  <ion-header [translucent]="true" class="ion-no-border ">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        <h1>Profile</h1>
+      </ion-title>     
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true" class="center innerBgWrapp">
+    <div class="ion-padding accountWrapp">
+        <div class="profileWrapp">
+          
+          <div class="userIconpro">
+            <ion-thumbnail>
+              <ng-container *ngIf="profilePic">
+                <ion-img [src]="profilePic" />
+              </ng-container>
+              <ng-container *ngIf="profilePic==''">
+                <ion-icon name="person-outline"></ion-icon>
+              </ng-container>
+            </ion-thumbnail>
+          </div>
+
+          <ion-card class="cardProfile">
+            <ion-card-content>
+              <ion-text class="ion-text-center">
+                <h1>{{user.first_name}} {{user.last_name}}</h1>
+                <h6><ion-icon name="mail-outline"></ion-icon> {{user.email_id}}</h6>
+                <h6><ion-icon name="call-outline"></ion-icon> {{user.mobile_no}}</h6>
+              </ion-text>
+
+              <div class="ionDivider"></div>
+              <div class="organizationBlock">
+                <ion-row>
+                  <ion-col class="ion-text-center">
+                    <ion-label>Organization</ion-label>
+                    <h5>PSD</h5>
+                  </ion-col>
+
+                  <ion-col class="ion-text-center">
+                    <ion-label> Designation</ion-label>
+                    <h5>{{user.role_name}}</h5>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-card-content>
+          </ion-card>
+          <ng-container >
+
+            <ion-button shape="round" expand="block" (click)="logout()">Logout</ion-button>
+            <!-- <div class="downloadList">
+              <ion-card (click)="logout()">
+                <ion-item color="none" lines="none" class="list-item">
+                  <ion-avatar slot="start" class="custom-avatar">
+                    <ion-icon name="log-out-outline"></ion-icon>
+                  </ion-avatar>
+                  <ion-text>
+                    <h4>Logout </h4>
+                  </ion-text>
+                  <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+                </ion-item>
+              </ion-card>
+            </div> -->
+          
+          </ng-container>
+        </div>
+
+        
+
+  
+
+      <!-- myprofile -->
+
+    </div>
+  </ion-content>
