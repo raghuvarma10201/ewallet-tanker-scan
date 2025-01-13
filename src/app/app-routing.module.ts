@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     // redirectTo: 'scanner',
-    redirectTo: 'event',
+    redirectTo: 'tanker',
     //redirectTo: 'scanner',
     pathMatch: 'full'
   },

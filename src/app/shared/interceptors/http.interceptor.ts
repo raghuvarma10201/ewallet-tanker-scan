@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { Observable, from } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import {
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpErrorResponse,
+} from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
-  constructor() {}
+  constructor(private router: Router) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -20,9 +27,24 @@ export class HttpInterceptorService implements HttpInterceptor {
       },
     });
 
-    // Pass the cloned request to the next handler
-    return next.handle(clonedRequest);
+    return next.handle(clonedRequest).pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          // Handle unauthorized error (401)
+          this.handleUnauthorized();
+        }
+        return throwError(() => error);
+      })
+    );
+  }
+
+  private handleUnauthorized() {
+    // Clear local storage or perform logout actions
+    localStorage.clear();
+    
+    // Redirect to login page
+    this.router.navigate(['/signin']);
   }
 }
-export { HttpInterceptor };
 
+export { HttpInterceptor };

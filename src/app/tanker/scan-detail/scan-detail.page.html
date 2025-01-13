@@ -86,12 +86,12 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-button *ngIf="!tripDetails.is_attended" color="success" class="download-trip-btn"
+          <ion-button *ngIf="tripDetails.wallet_status === 'Yes'" color="success" class="download-trip-btn"
             (click)="approveEntry(tripDetails.id)">
-            Approve Entry
+            Create Trip
           </ion-button>
-          <ion-button *ngIf="tripDetails.is_attended" disabled="true" color="danger" class="download-trip-btn">
-            Already Checked In
+          <ion-button *ngIf="tripDetails.wallet_status === 'No'" disabled="true" color="danger" class="download-trip-btn">
+            Insufficient Wallet Amount
           </ion-button>
         </ion-row>
       </ion-grid>

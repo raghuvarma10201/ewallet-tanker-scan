@@ -103,12 +103,12 @@ export class AttendancePage implements OnInit {
       this.loaderServ.loadingDismiss();
     })).subscribe(async (resp: any) => {
       console.log("this is the call backmessage", resp.data)
-      if (resp.status == 200) {
+      if (resp.status == 200 && resp.success == true) {
         this.viewTicket(resp.data);
       }else {
         Swal.fire({
           heightAuto : false,
-          title: resp.data.msg,
+          title: resp.message,
           icon: "error"
         }).then((result) => {
           this.activateScanner();

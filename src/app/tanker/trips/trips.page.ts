@@ -64,7 +64,7 @@ export class TripsPage implements OnInit {
       });
       this.router.navigate(['/locations']);
     }
-    
+
   }
 
   async getTrips(pageno: any) {
@@ -102,14 +102,12 @@ export class TripsPage implements OnInit {
     }
     await this.loaderService.loadingPresent();
     this.commonService.GetTrips(payLoad).pipe(finalize(() => {
-     
     })).subscribe((res: any) => {
       this.loaderService.loadingDismiss();
       console.log("Res", res);
-      if (res.status == 200 && res.data.length > 0) {
+      if (res.status == 200) {
         this.loaderService.loadingDismiss();
         if (res.data.length == 0) {
-          alert();
           this.isHasData = false;
         }
         res.data.map((eachItem: any) => {
@@ -117,7 +115,11 @@ export class TripsPage implements OnInit {
           this.tripsData.push(eachItem);
         })
 
-        this.tripsData.sort((a: any, b: any) => b.trip_id - a.trip_id);
+        this.tripsData = this.tripsData
+          .sort((a: any, b: any) => b.trip_id - a.trip_id) // Sort by trip_id in descending order
+          .filter((item: any, index: number, self: any[]) =>
+            index === self.findIndex((t) => t.trip_id === item.trip_id) // Remove duplicates based on trip_id
+          );
       } else {
         this.loaderService.loadingDismiss();
       }
