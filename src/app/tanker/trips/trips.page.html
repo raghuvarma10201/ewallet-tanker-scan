@@ -25,7 +25,7 @@
     <div class="searchTopWrapp">
       <ion-searchbar [debounce]="1000" (ionInput)="handleInput($event)" placeholder="Search..."></ion-searchbar>
     </div>
-    <div class="ionContent">
+    <div class="ionContent" *ngIf="tripsData.length > 0">
       <ion-card class="trip-card tripCardColor1" *ngFor="let trip of tripsData" (click)="viewTrip(trip)">
         <ion-chip color="primary">{{trip.tanker_number}}</ion-chip>
         <ion-item lines="none" color="none">

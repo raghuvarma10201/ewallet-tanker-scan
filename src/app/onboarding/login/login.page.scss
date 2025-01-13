@@ -1,5 +1,5 @@
-
 .loginwrapp {
+
     // position: absolute;
     // z-index: 2;
     // width: 100%;
@@ -10,31 +10,40 @@
     // overflow: hidden;
     // flex-direction: column;
     // flex-wrap: nowrap;
-    .logoCard{
+    .logoCard {
         // flex: 3;
         // background: linear-gradient(-87deg, #320248 0%, #5e0885 47%, rgba(94, 8, 133, 0.99) 48%, rgb(0 0 0 / 61%) 100%);
-        background:transparent;
+        background: transparent;
         margin: 0px;
-        padding:30px 0px 30px 0px;
+        padding: 30px 0px 30px 0px;
         border-bottom-right-radius: 50px;
         border-bottom-left-radius: 50px;
     }
-    .ion-paddingLogin{
+
+    .ion-paddingLogin {
         flex: 7;
         display: grid;
-        position: absolute;
-        bottom: 0px;
-        width: 100%;
     }
-    .loginLogo{width:170px; margin:auto; display:block;}
+
+    .loginLogo {
+        width: 170px;
+        margin: auto;
+        display: block;
+    }
 
 
 }
 
-.iconLoginpos{    margin-top: 19px;
+.iconLoginpos {
+    margin-top: 19px;
     margin-right: 10px;
-    ion-icon{     padding-top: 7px;   font-size: 1.2rem;}
+
+    ion-icon {
+        padding-top: 7px;
+        font-size: 1.2rem;
+    }
 }
+
 .ion-ewallethome .ewallethomeWrapp:before {
     content: "";
     position: fixed;

@@ -1,0 +1,94 @@
+PODS:
+  - ByteowlsCapacitorFilesharer (4.0.0):
+    - Capacitor
+  - Capacitor (6.2.0):
+    - CapacitorCordova
+  - CapacitorApp (5.0.2):
+    - Capacitor
+  - CapacitorCamera (5.0.10):
+    - Capacitor
+  - CapacitorCommunityBarcodeScanner (4.0.1):
+    - Capacitor
+  - CapacitorCommunityHttp (1.4.1):
+    - Capacitor
+  - CapacitorCordova (6.2.0)
+  - CapacitorFilesystem (5.2.2):
+    - Capacitor
+  - CapacitorHaptics (5.0.2):
+    - Capacitor
+  - CapacitorKeyboard (5.0.2):
+    - Capacitor
+  - CapacitorSplashScreen (5.0.8):
+    - Capacitor
+  - CapacitorStatusBar (5.0.8):
+    - Capacitor
+  - CapacitorToast (5.0.8):
+    - Capacitor
+  - Ndpsaeslibrary (0.0.8):
+    - Capacitor
+
+DEPENDENCIES:
+  - "ByteowlsCapacitorFilesharer (from `../../node_modules/@byteowls/capacitor-filesharer`)"
+  - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorApp (from `../../node_modules/@capacitor/app`)"
+  - "CapacitorCamera (from `../../node_modules/@capacitor/camera`)"
+  - "CapacitorCommunityBarcodeScanner (from `../../node_modules/@capacitor-community/barcode-scanner`)"
+  - "CapacitorCommunityHttp (from `../../node_modules/@capacitor-community/http`)"
+  - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorFilesystem (from `../../node_modules/@capacitor/filesystem`)"
+  - "CapacitorHaptics (from `../../node_modules/@capacitor/haptics`)"
+  - "CapacitorKeyboard (from `../../node_modules/@capacitor/keyboard`)"
+  - "CapacitorSplashScreen (from `../../node_modules/@capacitor/splash-screen`)"
+  - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
+  - "CapacitorToast (from `../../node_modules/@capacitor/toast`)"
+  - Ndpsaeslibrary (from `../../node_modules/ndpsaeslibrary`)
+
+EXTERNAL SOURCES:
+  ByteowlsCapacitorFilesharer:
+    :path: "../../node_modules/@byteowls/capacitor-filesharer"
+  Capacitor:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorApp:
+    :path: "../../node_modules/@capacitor/app"
+  CapacitorCamera:
+    :path: "../../node_modules/@capacitor/camera"
+  CapacitorCommunityBarcodeScanner:
+    :path: "../../node_modules/@capacitor-community/barcode-scanner"
+  CapacitorCommunityHttp:
+    :path: "../../node_modules/@capacitor-community/http"
+  CapacitorCordova:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorFilesystem:
+    :path: "../../node_modules/@capacitor/filesystem"
+  CapacitorHaptics:
+    :path: "../../node_modules/@capacitor/haptics"
+  CapacitorKeyboard:
+    :path: "../../node_modules/@capacitor/keyboard"
+  CapacitorSplashScreen:
+    :path: "../../node_modules/@capacitor/splash-screen"
+  CapacitorStatusBar:
+    :path: "../../node_modules/@capacitor/status-bar"
+  CapacitorToast:
+    :path: "../../node_modules/@capacitor/toast"
+  Ndpsaeslibrary:
+    :path: "../../node_modules/ndpsaeslibrary"
+
+SPEC CHECKSUMS:
+  ByteowlsCapacitorFilesharer: 6f3b52b42a2f9f27cc9e9ff58cb91c5195d10bcb
+  Capacitor: 05d35014f4425b0740fc8776481f6a369ad071bf
+  CapacitorApp: cd6156285f7a3bbace33fa7c4eeabbe6eb17975a
+  CapacitorCamera: 916a67c6726fabcc623df79d3f934828f2520103
+  CapacitorCommunityBarcodeScanner: 100051f49caad62966f331cbdf6844a3e51db8e9
+  CapacitorCommunityHttp: 7eba71da94e070e37a26a60483350285a33e3903
+  CapacitorCordova: b33e7f4aa4ed105dd43283acdd940964374a87d9
+  CapacitorFilesystem: afe2c055f1e379385c80eafdece32751926b2910
+  CapacitorHaptics: f3fb21620b6b1c9131a703f6721717181c100415
+  CapacitorKeyboard: ac1f08405f655ea158e6d9e3f33ee59c4158255b
+  CapacitorSplashScreen: 0b962a2bee014151569dc59b089ba0e93daeeaf0
+  CapacitorStatusBar: 8e0a8f213504695505dc8c4f808dffbe03aa0e0f
+  CapacitorToast: 487af6115e48e6692513ea57a980cae54f52e647
+  Ndpsaeslibrary: c757ca48dc636575a869735dd05bbc4c5b32fc47
+
+PODFILE CHECKSUM: db7156cf88dde0a787ddc7cbd5c5eb371c2096a8
+
+COCOAPODS: 1.16.2

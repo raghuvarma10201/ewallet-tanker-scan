@@ -28,6 +28,7 @@ export class LoginPage implements OnInit {
     private sharedService: SharedService,
     
   ) {
+    this.loaderService.loadingDismiss();
     const PAT_EMAIL = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$";
     this.loginForm = this.fb.group({
       email_id: [null,  [Validators.required, Validators.pattern(PAT_EMAIL)]],
@@ -37,7 +38,7 @@ export class LoginPage implements OnInit {
    }
 
   ngOnInit() {
-    
+    this.loaderService.loadingDismiss();
   }
 
   get form() { return this.loginForm.controls; }

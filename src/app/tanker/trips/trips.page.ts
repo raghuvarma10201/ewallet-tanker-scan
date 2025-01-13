@@ -34,23 +34,28 @@ export class TripsPage implements OnInit {
     private commonService: CommonService
   ) { }
   ionViewWillEnter() {
-    let userInfo: any = localStorage.getItem('userData');
-    let locationInfo: any = localStorage.getItem('selectedLocation');
-    this.locationData = JSON.parse(locationInfo);
+    console.log('ionViewWillEnter triggered'); // Debug log
+    const userInfo: any = localStorage.getItem('userData');
+    const locationInfo: any = localStorage.getItem('selectedLocation');
+    this.tripsData = [];
     if (!locationInfo) {
       Swal.fire({
         heightAuto: false,
         title: "Please select Location",
         icon: "error"
+      }).then(() => {
+        // Navigate only after the alert is dismissed
+        this.router.navigate(['/locations']);
       });
-      this.router.navigate(['/locations']);
-    }
-    console.log(this.locationData);
-    let userData = JSON.parse(userInfo);
-    this.tripData = JSON.parse(locationInfo);
+    } else {
+      this.locationData = JSON.parse(locationInfo);
+      console.log(this.locationData);
+      let userData = JSON.parse(userInfo);
+      this.tripData = JSON.parse(locationInfo);
 
-    this.userId = userData.id;
-    this.getTrips(this.pageno);
+      this.userId = userData.id;
+      this.getTrips(this.pageno);
+    }
   }
   ngOnInit() {
     let userInfo: any = localStorage.getItem('userData');
@@ -64,7 +69,6 @@ export class TripsPage implements OnInit {
       });
       this.router.navigate(['/locations']);
     }
-
   }
 
   async getTrips(pageno: any) {

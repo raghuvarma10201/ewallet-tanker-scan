@@ -15,6 +15,6 @@ import { TankerPage } from './tanker.page';
     IonicModule,
     TankerPageRoutingModule
   ],
-  declarations: [TankerPage]
+  declarations: [TankerPage],
 })
 export class TankerPageModule {}

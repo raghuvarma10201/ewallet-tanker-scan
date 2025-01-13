@@ -9,10 +9,11 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { LoaderService } from '../loader.service';
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
-  constructor(private router: Router) {}
+  constructor(private router: Router,private loaderService: LoaderService) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -31,6 +32,7 @@ export class HttpInterceptorService implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
         if (error.status === 401) {
           // Handle unauthorized error (401)
+          this.loaderService.loadingDismiss();
           this.handleUnauthorized();
         }
         return throwError(() => error);
