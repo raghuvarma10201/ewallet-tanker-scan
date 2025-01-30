@@ -57,7 +57,7 @@ export class ScanDetailPage implements OnInit {
   }
 
   async approveEntry(id: any) {
-    console.log(this.QuantityForm.value);
+    const formValue = this.QuantityForm.value;
     await this.loaderService.loadingPresent();
     this.submitted = true;
     if (this.QuantityForm.invalid) {
@@ -73,7 +73,7 @@ export class ScanDetailPage implements OnInit {
       "trip_amount": this.tripDetails.trip_final_amount,
       "wallet_amount": this.tripDetails.wallet_amount,
       "wallet_unique_id": this.tripDetails.wallet_unique_id,
-      "quantity": this.tripDetails.tanker_id,
+      "quantity": formValue.quantity,
       "created_by": this.userId  //Login user id
     }
     await this.loaderServ.loadingPresent();
@@ -82,12 +82,13 @@ export class ScanDetailPage implements OnInit {
     })).subscribe(async (resp: any) => {
       console.log("this is the call backmessage", resp.data)
       if (resp.status == 200) {
-        await this.loaderServ.loadingDismiss();
+        
         Swal.fire({
           heightAuto: false,
           title: resp.message,
           icon: "success"
         }).then((result) => {
+          this.loaderServ.loadingDismiss();
           this.modalController.dismiss();
           this.router.navigate(["tanker/trips"]);
         });
@@ -98,6 +99,7 @@ export class ScanDetailPage implements OnInit {
           title: resp.message,
           icon: "error"
         }).then((result) => {
+          this.loaderServ.loadingDismiss();
           this.modalController.dismiss();
           this.router.navigate(["tanker/trips"]);
         });

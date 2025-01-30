@@ -29,13 +29,14 @@ export class LocationsPage implements OnInit {
   ) { }
   ionViewWillEnter() {
     this.loaderService.loadingDismiss();
-    
+    this.locationsData = [];
+    this.getLocations();
   }
   ngOnInit() {
     this.loaderService.loadingDismiss();
     let moduleData: any = localStorage.getItem('moduleType');
     let moduleType = JSON.parse(moduleData);
-    this.getLocations();
+    
   }
 
   async getLocations() {

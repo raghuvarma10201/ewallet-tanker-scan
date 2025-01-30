@@ -27,6 +27,8 @@ export class TripsPage implements OnInit {
   tripData: any;
   intervalId: any;
   isHasData: boolean = true;
+  message: string = 'No data found.'; // Optional custom message
+  icon: string = 'alert-circle-outline'; // Optional custom icon
   constructor(
     private router: Router,
     private loaderService: LoaderService,
@@ -47,15 +49,14 @@ export class TripsPage implements OnInit {
         // Navigate only after the alert is dismissed
         this.router.navigate(['/locations']);
       });
-    } else {
-      this.locationData = JSON.parse(locationInfo);
-      console.log(this.locationData);
-      let userData = JSON.parse(userInfo);
-      this.tripData = JSON.parse(locationInfo);
-
-      this.userId = userData.id;
-      this.getTrips(this.pageno);
     }
+    this.locationData = JSON.parse(locationInfo);
+    console.log(this.locationData);
+    let userData = JSON.parse(userInfo);
+    this.tripData = JSON.parse(locationInfo);
+
+    this.userId = userData.id;
+    this.getTrips(this.pageno);
   }
   ngOnInit() {
     let userInfo: any = localStorage.getItem('userData');

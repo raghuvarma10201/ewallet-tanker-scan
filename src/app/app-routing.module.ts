@@ -50,6 +50,7 @@ const routes: Routes = [
     loadChildren: () => import('./tanker/trips/trips.module').then( m => m.TripsPageModule)
   },
   {
+    canActivate: [AuthGuard],
     path: 'tanker',
     loadChildren: () => import('./tanker/tanker.module').then( m => m.TankerPageModule)
   },

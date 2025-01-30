@@ -13,14 +13,11 @@
 </ion-header>
 <!-- Content -->
 <ion-content [fullscreen]="true" class="winnerBgWrapp">
-  
+
   <div class="tripsWrapp">
-    <ion-refresher slot="fixed"  (ionRefresh)="doRefresh($event)"  pullingIcon="arrow-down">
-      <ion-refresher-content
-        pullingText="Pull to refresh..."
-        refreshingSpinner="circles"
-        refreshingText="Refreshing..."
-      ></ion-refresher-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" pullingIcon="arrow-down">
+      <ion-refresher-content pullingText="Pull to refresh..." refreshingSpinner="circles"
+        refreshingText="Refreshing..."></ion-refresher-content>
     </ion-refresher>
     <div class="searchTopWrapp">
       <ion-searchbar [debounce]="1000" (ionInput)="handleInput($event)" placeholder="Search..."></ion-searchbar>
@@ -34,7 +31,8 @@
               <h2>{{ trip.trip_number }}</h2>
               <p><ion-icon name="calendar-number-outline"></ion-icon>{{ trip.trip_date | date: 'dd MMM y'}}</p>
               <p class="vehicleTimings">
-                <span class="entry"><ion-icon name="arrow-down"></ion-icon>{{ trip.vehicle_entry | date: 'h:mm a'}}</span>
+                <span class="entry"><ion-icon name="arrow-down"></ion-icon>{{ trip.vehicle_entry | date: 'h:mm
+                  a'}}</span>
                 <span class="exit"><ion-icon name="arrow-up"></ion-icon>{{ trip.vehicle_exit | date: 'h:mm a'}}</span>
               </p>
               <p></p>
@@ -42,12 +40,20 @@
           </div>
         </ion-item>
       </ion-card>
-      <ion-infinite-scroll  *ngIf="isHasData"  (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll *ngIf="isHasData" (ionInfinite)="onIonInfinite($event)">
         <ion-infinite-scroll-content></ion-infinite-scroll-content>
       </ion-infinite-scroll>
     </div>
+    <div class="ionContent" *ngIf="tripsData.length == 0">
+      <div class="scontainer">
+        <ion-icon [name]="icon" class="icon"></ion-icon>
+        <ion-text color="medium">
+          <h4 class="text">{{ message }}</h4>
+        </ion-text>
+      </div>
+    </div>
   </div>
- 
+
 </ion-content>
 
 <ion-footer class="ion-no-border socialFooter" text-center>
